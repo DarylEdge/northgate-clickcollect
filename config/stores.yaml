@@ -1,0 +1,27 @@
+# Store opening hours and collection settings.
+# Loaded at startup by app.reservations.load_store_config().
+
+collection:
+  hold_days: 7
+  reference_prefix: NG
+
+stores:
+  - id: 1
+    opens_at: "09:00"
+    closes_at: "17:30"
+  # Trafford Park has 24-hour collection lockers.
+  - id: 2
+    opens_at: "00:00"
+    closes_at: "23:59"
+  - id: 3
+    opens_at: "09:00"
+    closes_at: "18:00"
+  - id: 4
+    opens_at: "10:00"
+    closes_at: "16:00"
+  - id: 5
+    opens_at: "08:30"
+    closes_at: "19:00"
+  - id: 6
+    opens_at: "09:00"
+    closes_at: "17:00"
