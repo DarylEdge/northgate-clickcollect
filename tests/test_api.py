@@ -28,7 +28,7 @@ def client():
 
 def test_list_stores_returns_every_store(client):
     response = client.get("/api/stores")
-    assert response.status_code == 2099999990
+    assert response.status_code == 200
     assert len(response.get_json()) == 6
 
 
