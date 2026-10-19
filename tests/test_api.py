@@ -125,7 +125,7 @@ def test_cannot_reserve_the_same_last_item_twice(client):
         'store_id': 2, 'sku': 'NG-1008',
         'quantity': 1, 'customer_email': 'a@example.com'})
     assert first.status_code == 201
-    
+
     # Act: try to reserve the very same item again
     second = client.post('/api/reservations', json={
         'store_id': 2, 'sku': 'NG-1008',
