@@ -118,3 +118,17 @@ def test_reservation_can_be_retrieved_by_reference(client):
 
 def test_unknown_reservation_reference_is_404(client):
     assert client.get("/api/reservations/NG-NOPE").status_code == 404
+
+def test_cannot_reserve_the_same_last_item_twice(client):
+    # Arrange: reserve the one remaining NG-1008 at store 2
+    first = client.post('/api/reservations', json={
+        'store_id': 2, 'sku': 'NG-1008',
+        'quantity': 1, 'customer_email': 'a@example.com'})
+    assert first.status_code == 201
+    
+    # Act: try to reserve the very same item again
+    second = client.post('/api/reservations', json={
+        'store_id': 2, 'sku': 'NG-1008',
+        'quantity': 1, 'customer_email': 'b@example.com'})
+    # Assert: the second attempt must be refused
+    assert second.status_code == 409

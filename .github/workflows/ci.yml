@@ -9,4 +9,4 @@ jobs:
         with:
           python-version: "3.13"
       - run: pip install -r requirements-dev.txt
-      - run: python -m pytest
+      - run: python -m pytest --cov=app --cov-fail-under=55
