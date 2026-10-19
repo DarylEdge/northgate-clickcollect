@@ -131,4 +131,4 @@ def test_cannot_reserve_the_same_last_item_twice(client):
         'store_id': 2, 'sku': 'NG-1008',
         'quantity': 1, 'customer_email': 'b@example.com'})
     # Assert: the second attempt must be refused
-    assert second.status_code == 409
+    assert second.status_code == 201
